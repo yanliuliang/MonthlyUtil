@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="300dp"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tv_month_1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="我本月"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/tv_month_2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="我上月"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@id/tv_month_1" />
+
+    <TextView
+        android:id="@+id/tv_month_3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="10dp"
+        android:text="其他人本月"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/tv_month_4" />
+
+    <TextView
+        android:id="@+id/tv_month_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="其他人上月"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <View
+        android:id="@+id/line"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginBottom="5dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@id/tv_month_1" />
+
+    <View
+        android:id="@+id/view_count1"
+        android:layout_width="30dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toEndOf="@id/tv_month_1"
+        app:layout_constraintStart_toStartOf="@id/tv_month_1" />
+
+    <View
+        android:id="@+id/view_count2"
+        android:layout_width="30dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toEndOf="@id/tv_month_2"
+        app:layout_constraintStart_toStartOf="@id/tv_month_2" />
+
+    <View
+        android:id="@+id/view_count3"
+        android:layout_width="30dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/teal_200"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toEndOf="@id/tv_month_3"
+        app:layout_constraintStart_toStartOf="@id/tv_month_3" />
+
+    <View
+        android:id="@+id/view_count4"
+        android:layout_width="30dp"
+        android:layout_height="1dp"
+        android:layout_marginBottom="2dp"
+        android:background="@color/red"
+        app:layout_constraintBottom_toTopOf="@id/line"
+        app:layout_constraintEnd_toEndOf="@id/tv_month_4"
+        app:layout_constraintStart_toStartOf="@id/tv_month_4" />
+
+    <TextView
+        android:id="@+id/tv_count1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/view_count1"
+        app:layout_constraintEnd_toEndOf="@id/view_count1"
+        app:layout_constraintStart_toStartOf="@id/view_count1" />
+
+    <TextView
+        android:id="@+id/tv_count2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/view_count2"
+        app:layout_constraintEnd_toEndOf="@id/view_count2"
+        app:layout_constraintStart_toStartOf="@id/view_count2" />
+
+    <TextView
+        android:id="@+id/tv_count3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/view_count3"
+        app:layout_constraintEnd_toEndOf="@id/view_count3"
+        app:layout_constraintStart_toStartOf="@id/view_count3" />
+
+    <TextView
+        android:id="@+id/tv_count4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/view_count4"
+        app:layout_constraintEnd_toEndOf="@id/view_count4"
+        app:layout_constraintStart_toStartOf="@id/view_count4" />
+</androidx.constraintlayout.widget.ConstraintLayout>

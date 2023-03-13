@@ -1,0 +1,474 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/image_top"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:scaleType="center"
+                android:src="@drawable/image_top"
+           
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_appName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/app_name"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+           
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_Time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="@string/monthly_title"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+           
+                app:layout_constraintEnd_toEndOf="@id/tv_appName"
+                app:layout_constraintStart_toStartOf="@id/tv_appName"
+                app:layout_constraintTop_toBottomOf="@id/tv_appName" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+
+                android:layout_height="wrap_content"
+                android:background="#A5DDD6"
+                android:orientation="vertical"
+                android:paddingTop="5dp"
+                app:layout_constraintTop_toBottomOf="@id/image_top">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_1"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="12dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/monthly_all_book"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                />
+
+                <com.haibin.calendarview.CalendarView
+                    android:id="@+id/calendarView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="#CDF6F1"
+               
+                    app:calendar_padding="10dp"
+                    app:calendar_show_mode="only_month_view"
+                    app:current_month_lunar_text_color="#CFCFCF"
+                    app:current_month_text_color="#333333"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:min_year="2023"
+                    app:month_view="com.example.myapplication.colorful.ColorfulMonthView"
+                    app:month_view_show_mode="mode_only_current"
+                    app:other_month_text_color="#e1e1e1"
+                    app:scheme_lunar_text_color="#ffffff"
+                    app:scheme_text="假"
+                    app:scheme_text_color="#fff"
+                    app:scheme_theme_color="#128c4b"
+                    app:selected_lunar_text_color="#fff"
+                    app:selected_text_color="#fff"
+                    app:selected_theme_color="#108cd4"
+                    app:week_background="#CDF6F1"
+                    app:week_text_color="#111"
+                    app:week_view="com.example.myapplication.colorful.ColorfulWeekView"
+                    app:year_view_day_text_color="#333333"
+                    app:year_view_day_text_size="9sp"
+                    app:year_view_month_text_color="#ff0000"
+                    app:year_view_month_text_size="20sp"
+                    app:year_view_scheme_color="#f17706" />
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_2"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/month_all_read"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                />
+
+                <com.example.myapplication.view.StatisticsView
+                    android:id="@+id/chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="20dp"
+               
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_3"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/month_all_read_classification"
+                    android:textColor="@color/black"
+                    android:textSize="14sp"
+                />
+
+                <com.github.mikephil.charting.charts.PieChart
+                    android:id="@+id/chart2"
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent" />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp">
+
+                    <com.example.myapplication.view.CircleProgressView
+                        android:id="@+id/progressView1"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        app:backColor="#E6DBDBDB"
+                        app:backWidth="12dp"
+                        app:layout_constraintEnd_toStartOf="@id/progressView2"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:progColor="#5C5DC3"
+                        app:progWidth="10dp"
+                        app:progress="85" />
+
+                    <TextView
+                        android:id="@+id/tv_progress1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="82%"
+                        android:textColor="#5C5DC3"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/progressView1"
+                        app:layout_constraintEnd_toEndOf="@id/progressView1"
+                        app:layout_constraintStart_toStartOf="@id/progressView1"
+                        app:layout_constraintTop_toTopOf="@id/progressView1" />
+
+                    <TextView
+                        android:id="@+id/tv_progress_type_name1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="本月%s阅读比例"
+                        android:textColor="#5C5DC3"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="@id/progressView1"
+                        app:layout_constraintStart_toStartOf="@id/progressView1"
+                        app:layout_constraintTop_toBottomOf="@id/progressView1" />
+
+                    <com.example.myapplication.view.CircleProgressView
+                        android:id="@+id/progressView2"
+                        android:layout_width="140dp"
+                        android:layout_height="140dp"
+                        app:backColor="#E6DBDBDB"
+                        app:backWidth="12dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@id/progressView1"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:progColor="#B120FF"
+                        app:progWidth="10dp"
+                        app:progress="85" />
+
+                    <TextView
+                        android:id="@+id/tv_progress2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="82%"
+                        android:textColor="#B120FF"
+                        android:textSize="20sp"
+                        app:layout_constraintBottom_toBottomOf="@id/progressView2"
+                        app:layout_constraintEnd_toEndOf="@id/progressView2"
+                        app:layout_constraintStart_toStartOf="@id/progressView2"
+                        app:layout_constraintTop_toTopOf="@id/progressView2" />
+
+                    <TextView
+                        android:id="@+id/tv_progress_type_name2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:text="同龄人本月%s阅读比例"
+                        android:textColor="#B120FF"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="@id/progressView2"
+                        app:layout_constraintStart_toStartOf="@id/progressView2"
+                        app:layout_constraintTop_toBottomOf="@id/progressView2" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_4"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/month_all_read_type"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <com.example.myapplication.FlowLayout
+                    android:id="@+id/flowLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_radio_e8e8e8"
+                    android:padding="5dp"
+                />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_5"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_read_famous_works"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="@string/month_read_famous_works"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="本人本月"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="名著" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_mine"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:max="100"
+                        android:progress="80" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="非名著" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:text="同龄人本月"
+                    android:textColor="@color/white" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="名著" />
+
+                    <ProgressBar
+                        android:id="@+id/pb_other"
+                        style="@android:style/Widget.ProgressBar.Horizontal"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="3"
+                        android:max="100"
+                        android:progress="30" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="非名著" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_6"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="本月阅读top3"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_month"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="10dp"
+                    android:lineSpacingMultiplier="1.3"
+                    android:text="本年阅读top3"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycle_year"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="30dp"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/bg_radio_blue"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:text="@string/month_title_7"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_all_book_by_month"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

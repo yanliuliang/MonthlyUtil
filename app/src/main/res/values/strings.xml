@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">阅读app</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="monthly_title">%d年%d月阅读报告</string>
+    <string name="monthly_all_book">本月，您一共读了%d本书，共计读书时长%d分钟。《%s》比例为%d%，您读的最多的书是：%s。阅读坚持了%d天</string>
+    <string name="month_all_read">本月，您一共读了%d本书，%d次，比上个月%s本</string>
+    <!--本月阅读最多的前四本书-->
+    <string name="month_all_read_classification">本月，您一共读了%s</string>
+    <!--本月阅读全部书籍-->
+    <string name="month_all_read_type">本月，您读的比较多的书：%s</string>
+    <!--名著书籍占据全部书籍的比例-->
+    <string name="month_read_famous_works">您好，本月您阅读名著类书籍%d本，比上个月多%d本；\n非名著类阅读%d本，比上个月多%d本；\n本月同龄人名著阅读%d本，非名著阅读%d本</string>
+    <string name="month_title_1">本月小结</string>
+    <string name="month_title_2">阅读量</string>
+    <string name="month_title_3">阅读分类</string>
+    <string name="month_title_4">全部阅读分类</string>
+    <string name="month_title_5">名著&amp;非名著</string>
+    <string name="month_title_6">读的最多的书</string>
+    <string name="month_title_7">本月读过的书</string>
+
+</resources>
