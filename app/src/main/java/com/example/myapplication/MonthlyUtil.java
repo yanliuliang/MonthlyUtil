@@ -3,8 +3,12 @@ package com.example.myapplication;
 import android.annotation.SuppressLint;
 import android.util.Log;
 
+import com.example.myapplication.bean.ReadDayByMonth;
+import com.example.myapplication.bean.RecordCountBean;
 import com.example.myapplication.bean.ResultData;
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.google.gson.reflect.TypeToken;
 import com.haibin.calendarview.Calendar;
 
 import java.text.SimpleDateFormat;
@@ -38,17 +42,13 @@ public class MonthlyUtil {
 
     /**
      * 设置月份数据
-     *
-     * @return
      */
-    public Map<String, Calendar> getMothResult(List<String> list) {
-
+    public Map<String, Calendar> getMothResult(int[] list) {
         Map<String, Calendar> map = new HashMap<>();
-        for (int i = 0; i < list.size(); i++) {
-            map.put(getSchemeCalendar(year, month, Integer.parseInt(list.get(i)), 0xFF40db25, "假").toString(),
-                    getSchemeCalendar(year, month, Integer.parseInt(list.get(i)), 0xFF40db25, "假"));
+        for (int j : list) {
+            map.put(getSchemeCalendar(year, month, j, 0xFF40db25, "假").toString(),
+                    getSchemeCalendar(year, month, j, 0xFF40db25, "假"));
         }
-
         return map;
     }
 
@@ -102,6 +102,9 @@ public class MonthlyUtil {
     /**
      * 获取指定月份的读书日期
      */
+    /**
+     * @param requestBack
+     */
     public void getReadDayByMonth(RequestBack requestBack) {
         Log.e(TAG, "getReadDayByMonth: 获取指定月份的读书日期");
         map.clear();
@@ -111,12 +114,12 @@ public class MonthlyUtil {
         String date = sDateFormat.format(new Date(System.currentTimeMillis()));
         year = Integer.parseInt(date.split(" ")[0].split("-")[0]);
         month = Integer.parseInt(date.split(" ")[0].split("-")[1]);
-        Log.e(TAG, "getReadDayByMonth: " );
+        Log.e(TAG, "getReadDayByMonth: ");
         map.put("dateStr", date);
         Xutils.post(GET_READ_GAY_BY_MONTH, map, new Xutils.GetDataCallback() {
             @Override
             public void success(String result) {
-                ResultData resultData = new Gson().fromJson(result, ResultData.class);
+                ResultData<ReadDayByMonth> resultData = new Gson().fromJson(result, new TypeToken<ResultData<ReadDayByMonth>>() {}.getType());
                 requestBack.getReadDayByMonth(resultData);
                 Log.e(TAG, "success: " + result);
             }
@@ -131,16 +134,18 @@ public class MonthlyUtil {
     /**
      * 获取指定日期的图书列表
      */
-    public void getReadRecordAllBook() {
+    public void getReadRecordAllBook(RequestBack requestBack) {
         map.clear();
         map.put("userId", userId);
         String pattern = "yyyy-MM-dd HH:mm:ss";
         @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat(pattern);
         String date = sDateFormat.format(new Date(System.currentTimeMillis()));
-        map.put("date", date);
+        map.put("dateStr", date);
         Xutils.post(GET_READ_RECORD_ALL_BOOK, map, new Xutils.GetDataCallback() {
             @Override
             public void success(String result) {
+                ResultData<String[]> resultData = new Gson().fromJson(result, new TypeToken<ResultData<String[]>>() {}.getType());
+                requestBack.getReadDayByMonth(resultData);
                 Log.e(TAG, "success: " + result);
             }
 
@@ -151,4 +156,77 @@ public class MonthlyUtil {
         });
     }
 
+    /**
+     * 每月各个书读的次数
+     */
+    public void getReadRecordByAllBook(RequestBack requestBack){
+        map.clear();
+        map.put("userId", userId);
+        String pattern = "yyyy-MM-dd HH:mm:ss";
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat(pattern);
+        String date = sDateFormat.format(new Date(System.currentTimeMillis()));
+        map.put("dateStr", date);
+        Xutils.post(GET_READ_RECORD_BY_ALL_BOOL, map, new Xutils.GetDataCallback() {
+            @Override
+            public void success(String result) {
+                ResultData<String[]> resultData = new Gson().fromJson(result, new TypeToken<ResultData<String[]>>() {}.getType());
+                requestBack.getReadDayByMonth(resultData);
+                Log.e(TAG, "success: " + result);
+            }
+
+            @Override
+            public void failed(String... args) {
+                Log.d(TAG, "failed: " + args);
+            }
+        });
+    }
+
+    /**
+     * 获取指定日期的读书次数
+     */
+    public void getReadRecordCount(RequestBack requestBack){
+        map.clear();
+        map.put("userId", userId);
+        String pattern = "yyyy-MM-dd HH:mm:ss";
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat(pattern);
+        String date = sDateFormat.format(new Date(System.currentTimeMillis()));
+        map.put("dateStr", date);
+        Xutils.post(GET_READ_RECORD_COUNT, map, new Xutils.GetDataCallback() {
+            @Override
+            public void success(String result) {
+                ResultData<RecordCountBean> resultData = new Gson().fromJson(result, new TypeToken<ResultData<RecordCountBean>>() {}.getType());
+                requestBack.getReadDayByMonth(resultData);
+                Log.e(TAG, "success: " + result);
+            }
+
+            @Override
+            public void failed(String... args) {
+                Log.d(TAG, "failed: " + args);
+            }
+        });
+    }
+    /**
+     * 获取指定月份读书不同种类书本数量
+     */
+    public void getReadRecordCountByBookType(RequestBack requestBack){
+        map.clear();
+        map.put("userId", userId);
+        String pattern = "yyyy-MM-dd HH:mm:ss";
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat sDateFormat = new SimpleDateFormat(pattern);
+        String date = sDateFormat.format(new Date(System.currentTimeMillis()));
+        map.put("dateStr", date);
+        Xutils.post(GET_READ_RECORD_COUNT_BY_BOOK_TYPE, map, new Xutils.GetDataCallback() {
+            @Override
+            public void success(String result) {
+//                ResultData<RecordCountBean> resultData = new Gson().fromJson(result, new TypeToken<ResultData<RecordCountBean>>() {}.getType());
+//                requestBack.getReadDayByMonth(resultData);
+                Log.e(TAG, "success: " + result);
+            }
+
+            @Override
+            public void failed(String... args) {
+                Log.d(TAG, "failed: " + args);
+            }
+        });
+    }
 }

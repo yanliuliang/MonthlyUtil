@@ -15,6 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager;
 import com.example.myapplication.adapter.AllBookAdapter;
 import com.example.myapplication.adapter.BookAdapter;
 import com.example.myapplication.bean.BookInfo;
+import com.example.myapplication.bean.ReadDayByMonth;
+import com.example.myapplication.bean.RecordCountBean;
+import com.example.myapplication.bean.ResultData;
 import com.example.myapplication.databinding.ActivityMonthlyReportBinding;
 import com.example.myapplication.dialog.LoadingDialog;
 import com.github.mikephil.charting.animation.Easing;
@@ -24,9 +27,11 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.github.mikephil.charting.utils.ColorTemplate;
+import com.haibin.calendarview.Calendar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class MonthlyReportActivity extends AppCompatActivity {
     private ActivityMonthlyReportBinding binding;
@@ -42,9 +47,10 @@ public class MonthlyReportActivity extends AppCompatActivity {
         binding = ActivityMonthlyReportBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         loadingDialog = new LoadingDialog();
-        loadingDialog.show(getSupportFragmentManager(), "loading");
+//        loadingDialog.show(getSupportFragmentManager(), "loading");
         initData();
-        initChat1();
+
+        getHttpData();
         initChat2();
         initFlowLayout();
 
@@ -52,11 +58,61 @@ public class MonthlyReportActivity extends AppCompatActivity {
         initAllBookAdapter();
         // TODO: 2023/3/13 测试上报数据
 //        MonthlyUtil.getIntent().addReadRecord("名著", 123, 100L);
-        MonthlyUtil.getIntent().getReadDayByMonth(list -> {
-            Log.d(TAG, "onCreate: " + list);
-            loadingDialog.dismiss();
-            initCalendarView(list.getData().getDays());
+
+
+    }
+
+    /**
+     * 获取服务器数据
+     */
+    private void getHttpData() {
+//        MonthlyUtil.getIntent().getReadDayByMonth(new RequestBack() {
+//            @Override
+//            public <T> void getReadDayByMonth(ResultData<T> list) {
+//                ReadDayByMonth data = (ReadDayByMonth) list.getData();
+//                Log.d(TAG, "onCreate: " + data);
+//                //改变日历布局
+//                Map<String, Calendar> result = MonthlyUtil.getIntent().getMothResult(data.getDays());
+//                binding.calendarView.setSchemeDate(result);
+//                initChat1(data.getReadBookCount(), data.getReadBookLastMonthCount(), data.getReadBookCountByOther(), data.getReadBookLastMonthCountByOther());
+//            }
+//        });
+
+//        MonthlyUtil.getIntent().getReadRecordAllBook(new RequestBack() {
+//            @Override
+//            public <T> void getReadDayByMonth(ResultData<T> list) {
+//                String[] data = (String[]) list.getData();
+//                StringBuilder text = new StringBuilder();
+//                for (String ll : data) {
+//                    text.append("《"+ll+"》，");
+//                }
+//                String value = String.format(getResources().getString(R.string.month_all_read_classification), text);
+//                binding.tvReadRecordBook.setText(value);
+//            }
+//        });
+
+//        MonthlyUtil.getIntent().getReadRecordByAllBook(new RequestBack() {
+//            @Override
+//            public <T> void getReadDayByMonth(ResultData<T> list) {
+//
+//
+//            }
+//        });
+
+//        MonthlyUtil.getIntent().getReadRecordCount(new RequestBack() {
+//            @Override
+//            public <T> void getReadDayByMonth(ResultData<T> list) {
+//                RecordCountBean bean = (RecordCountBean) list.getData();
+//            }
+//        });
+
+        MonthlyUtil.getIntent().getReadRecordCountByBookType(new RequestBack() {
+            @Override
+            public <T> void getReadDayByMonth(ResultData<T> list) {
+            }
         });
+
+
     }
 
     /**
@@ -115,51 +171,32 @@ public class MonthlyReportActivity extends AppCompatActivity {
     /**
      * 树状图数据
      */
-    private void initChat1() {
+    private void initChat1(int myMonthCount, int myMonthLastCount, int otherMonthCount, int otherMonthLastCount) {
         binding.chart1.setCount(100, 50, 20, 100);
     }
 
-    /**
-     * 改变日历布局
-     */
-    private void initCalendarView(List<String> list) {
-        //此方法在巨大的数据量上不影响遍历性能，推荐使用
-
-        binding.calendarView.setSchemeDate(MonthlyUtil.getIntent().getMothResult(list));
-    }
 
     /**
      * 饼状图
      */
     private void initChat2() {
-
         binding.chart2.setUsePercentValues(true);
         binding.chart2.getDescription().setEnabled(false);
-
         binding.chart2.setCenterText("\n名著阅读分布");
-
         binding.chart2.setDrawHoleEnabled(true);
         binding.chart2.setHoleColor(Color.WHITE);
-
         binding.chart2.setTransparentCircleColor(Color.WHITE);
         binding.chart2.setTransparentCircleAlpha(110);
-
         binding.chart2.setHoleRadius(58f);
         binding.chart2.setTransparentCircleRadius(61f);
-
         binding.chart2.setDrawCenterText(true);
-
         binding.chart2.setRotationEnabled(false);
         binding.chart2.setHighlightPerTapEnabled(true);
-
         binding.chart2.setMaxAngle(180f); // HALF CHART
         binding.chart2.setRotationAngle(180f);
         binding.chart2.setCenterTextOffset(0, -20);
-
         setData();
-
         binding.chart2.animateY(1400, Easing.EaseInOutQuad);
-
         Legend l = binding.chart2.getLegend();
         l.setVerticalAlignment(Legend.LegendVerticalAlignment.TOP);
         l.setHorizontalAlignment(Legend.LegendHorizontalAlignment.CENTER);

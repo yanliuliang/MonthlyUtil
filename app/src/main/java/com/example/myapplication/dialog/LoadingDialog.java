@@ -17,7 +17,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.myapplication.R;
-
+/**
+ * @Description:loading动画
+ * @Author: dick
+ * @CreateDate: 2023/3/13
+ * @Version:
+ */
 public class LoadingDialog extends DialogFragment {
     private ImageView iv;
 

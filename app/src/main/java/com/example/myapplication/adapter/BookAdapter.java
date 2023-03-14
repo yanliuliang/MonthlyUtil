@@ -14,6 +14,13 @@ import com.example.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
+
+/**
+ * @Description:展示的书籍列表
+ * @Author: dick
+ * @CreateDate: 2023/3/13
+ * @Version:
+ */
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.ChatViewHolder> {
     private List<BookInfo> mEntityList = new ArrayList<>();
 

@@ -7,7 +7,7 @@
 
     <string name="monthly_title">%d年%d月阅读报告</string>
     <string name="monthly_all_book">本月，您一共读了%d本书，共计读书时长%d分钟。《%s》比例为%d%，您读的最多的书是：%s。阅读坚持了%d天</string>
-    <string name="month_all_read">本月，您一共读了%d本书，%d次，比上个月%s本</string>
+    <string name="month_all_read">本月，您一共读了%d本书，比上个月%s本</string>
     <!--本月阅读最多的前四本书-->
     <string name="month_all_read_classification">本月，您一共读了%s</string>
     <!--本月阅读全部书籍-->

@@ -14,10 +14,14 @@ import com.example.myapplication.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @Description:全部已读书籍
+ * @Author: dick
+ * @CreateDate: 2023/3/13
+ * @Version:
+ */
 public class AllBookAdapter extends RecyclerView.Adapter<AllBookAdapter.ChatViewHolder> {
     private List<BookInfo> mEntityList = new ArrayList<>();
-
-
     public void setEntityList(List<BookInfo> mEntityList) {
         this.mEntityList = mEntityList;
         notifyDataSetChanged();
