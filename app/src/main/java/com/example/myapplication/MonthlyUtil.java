@@ -116,7 +116,7 @@ public class MonthlyUtil {
         Xutils.post(GET_READ_GAY_BY_MONTH, map, new Xutils.GetDataCallback() {
             @Override
             public void success(String result) {
-                ResultData resultData = new Gson().fromJson(date, ResultData.class);
+                ResultData resultData = new Gson().fromJson(result, ResultData.class);
                 requestBack.getReadDayByMonth(resultData);
                 Log.e(TAG, "success: " + result);
             }

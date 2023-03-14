@@ -1,5 +1,7 @@
 package com.example.myapplication.bean;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class ResultData {
@@ -51,7 +53,7 @@ public class ResultData {
     }
 
     public class ReadDayByMonth {
-        private List<String> days;
+        private int[] days;
         private long readAllTime;
         private long readMaxTime;
         private String readMaxTimeBook;
@@ -61,10 +63,14 @@ public class ResultData {
         private int readBookLastMonthCountByOther;
 
         public List<String> getDays() {
-            return days;
+            ArrayList<String> list = new ArrayList<>();
+            for (int day : days) {
+                list.add(String.valueOf(day));
+            }
+            return list;
         }
 
-        public void setDays(List<String> days) {
+        public void setDays(int[] days) {
             this.days = days;
         }
 
