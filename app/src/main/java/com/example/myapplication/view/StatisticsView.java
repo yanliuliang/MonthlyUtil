@@ -79,23 +79,46 @@ public class StatisticsView extends LinearLayout {
         Log.d("refreshView", "refreshView: "+itemHeight);
 
         ConstraintLayout.LayoutParams layoutParams1 = (ConstraintLayout.LayoutParams) view1.getLayoutParams();
-        layoutParams1.height = (int) (myMonthCount * itemHeight);
+        int height = (int )(myMonthCount * itemHeight);
+        if (height==0){
+            layoutParams1.height = 1 ;
+        }else {
+            layoutParams1.height = height ;
+        }
+
         view1.setLayoutParams(layoutParams1);
         tvCount1.setText(myMonthCount+"本");
 
         ConstraintLayout.LayoutParams layoutParams2 = (ConstraintLayout.LayoutParams) view2.getLayoutParams();
-        layoutParams2.height = (int) (myMonthLastCount * itemHeight);
+        height =(int) (myMonthLastCount * itemHeight) ;
+        if (height ==0){
+            layoutParams2.height = 1;
+        }else {
+            layoutParams2.height = height;
+        }
         view2.setLayoutParams(layoutParams2);
         tvCount2.setText(myMonthLastCount+"本");
 
 
         ConstraintLayout.LayoutParams layoutParams3 = (ConstraintLayout.LayoutParams) view3.getLayoutParams();
-        layoutParams3.height = (int) (otherMonthCount * itemHeight);
+        height = (int) (otherMonthCount * itemHeight);
+        if (height ==0){
+            layoutParams3.height =1 ;
+        }else {
+            layoutParams3.height = height;
+        }
+
         view3.setLayoutParams(layoutParams3);
         tvCount3.setText(otherMonthCount+"本");
 
         ConstraintLayout.LayoutParams layoutParams4 = (ConstraintLayout.LayoutParams) view4.getLayoutParams();
-        layoutParams4.height = (int) (otherMonthLastCount * itemHeight);
+        height =(int) (otherMonthLastCount * itemHeight);
+        if (height==0){
+            layoutParams4.height =1;
+        }else {
+            layoutParams4.height = height;
+        }
+
         view4.setLayoutParams(layoutParams4);
         tvCount4.setText(otherMonthCount+"本");
 

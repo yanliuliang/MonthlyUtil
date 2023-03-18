@@ -1,36 +1,38 @@
 package com.example.myapplication.bean;
 
+import java.util.List;
+
 public class ReadDayByMonth {
-    private int[] days;
-    private long readAllTime;
-    private long readMaxTime;
+    private List<Integer> days;
+    private int readAllTime;
+    private int readMaxTime;
     private String readMaxTimeBook;
     private int readBookCount;
     private int readBookLastMonthCount;
     private int readBookCountByOther;
     private int readBookLastMonthCountByOther;
 
-    public int[] getDays() {
+    public List<Integer> getDays() {
         return days;
     }
 
-    public void setDays(int[] days) {
+    public void setDays(List<Integer> days) {
         this.days = days;
     }
 
-    public long getReadAllTime() {
+    public int getReadAllTime() {
         return readAllTime;
     }
 
-    public void setReadAllTime(long readAllTime) {
+    public void setReadAllTime(int readAllTime) {
         this.readAllTime = readAllTime;
     }
 
-    public long getReadMaxTime() {
+    public int getReadMaxTime() {
         return readMaxTime;
     }
 
-    public void setReadMaxTime(long readMaxTime) {
+    public void setReadMaxTime(int readMaxTime) {
         this.readMaxTime = readMaxTime;
     }
 

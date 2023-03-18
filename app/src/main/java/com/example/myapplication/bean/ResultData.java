@@ -10,14 +10,14 @@ public  class ResultData<T> {
     private int code;
     private String msg;
     private T data;
-    private String arrayList;
+    private Object arrayList;
 
 
-    public String getArrayList() {
+    public Object getArrayList() {
         return arrayList;
     }
 
-    public void setArrayList(String arrayList) {
+    public void setArrayList(Object arrayList) {
         this.arrayList = arrayList;
     }
 

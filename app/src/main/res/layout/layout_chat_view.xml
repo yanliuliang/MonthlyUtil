@@ -58,7 +58,7 @@
     <View
         android:id="@+id/view_count1"
         android:layout_width="30dp"
-        android:layout_height="1dp"
+        android:layout_height="0.1dp"
         android:layout_marginBottom="2dp"
         android:background="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@id/line"
@@ -68,7 +68,7 @@
     <View
         android:id="@+id/view_count2"
         android:layout_width="30dp"
-        android:layout_height="1dp"
+        android:layout_height="0.1dp"
         android:layout_marginBottom="2dp"
         android:background="@color/red"
         app:layout_constraintBottom_toTopOf="@id/line"
@@ -78,7 +78,7 @@
     <View
         android:id="@+id/view_count3"
         android:layout_width="30dp"
-        android:layout_height="1dp"
+        android:layout_height="0.1dp"
         android:layout_marginBottom="2dp"
         android:background="@color/teal_200"
         app:layout_constraintBottom_toTopOf="@id/line"
@@ -88,7 +88,7 @@
     <View
         android:id="@+id/view_count4"
         android:layout_width="30dp"
-        android:layout_height="1dp"
+        android:layout_height="0.1dp"
         android:layout_marginBottom="2dp"
         android:background="@color/red"
         app:layout_constraintBottom_toTopOf="@id/line"
